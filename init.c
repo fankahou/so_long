@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kfan <kfan@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: kfan <fankahou@gmail.com>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 13:40:25 by kfan              #+#    #+#             */
-/*   Updated: 2024/11/05 12:18:33 by kfan             ###   ########.fr       */
+/*   Updated: 2026/04/20 00:02:58 by kfan             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	ft_file(t_map *map, int argc, char *input)
 	if (argc == 1 && map->retry == 0)
 	{
 		level++;
-		ft_strlcpy(map->path, "maps/1.ber", 11);
+		ft_strlcpy(map->path, "maps/8.ber", 11);
 		map->path[5] = level + '0';
 	}
 	else if (map->retry == 0)

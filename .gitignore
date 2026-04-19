@@ -1,0 +1,10 @@
+# Ignore Mac/C build files
+*.o
+*.a
+.DS_Store
+
+# Ignore Emscripten Web build files
+index.html
+index.js
+index.wasm
+index.data

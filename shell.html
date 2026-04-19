@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>so_long - Web Port</title>
+    <script src="coi-serviceworker.js"></script>
+    <style>
+        body {
+            background-color: #1a1a1a; /* Dark background */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center; /* Center horizontally */
+            align-items: center;     /* Center vertically */
+            height: 100vh;           /* Take up the whole screen height */
+            overflow: hidden;        /* Hide scrollbars */
+        }
+        canvas {
+            border: 2px solid #444;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.8);
+            /* Optional: uncomment the next line to make pixel art look sharp instead of blurry */
+            /* image-rendering: pixelated; */ 
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" oncontextmenu="event.preventDefault()"></canvas>
+
+    <script type='text/javascript'>
+        var Module = {
+            canvas: (function() {
+                var canvas = document.getElementById('canvas');
+                // As a default initial behavior, pop up an alert when webgl context is lost. To make your
+                // application robust, you may want to override this behavior before shipping!
+                // See http://www.khronos.org/registry/webgl/specs/latest/1.0/#5.15.2
+                canvas.addEventListener("webglcontextlost", function(e) { alert('WebGL context lost. You will need to reload the page.'); e.preventDefault(); }, false);
+                return canvas;
+            })()
+        };
+    </script>
+    
+    {{{ SCRIPT }}}
+</body>
+</html>

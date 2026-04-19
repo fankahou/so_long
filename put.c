@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   put.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kfan <kfan@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: kfan <fankahou@gmail.com>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 13:40:25 by kfan              #+#    #+#             */
-/*   Updated: 2024/11/04 13:56:00 by kfan             ###   ########.fr       */
+/*   Updated: 2026/04/19 23:54:16 by kfan             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,7 @@ void	put_info(t_map *map)
 
 	move = ft_itoa(map->player);
 	coin = ft_itoa(map->hole);
-	if (map->enermy == 1)
-		init_img(map, &info1, "duck1.xpm");
-	else
-		init_img(map, &info1, "idle1.xpm");
+	init_img(map, &info1, "idle1.xpm");
 	init_img(map, &info2, "duck1.xpm");
 	if (mlx_put_image_to_window(map->mlx, map->win, info1.img, 0, map->height
 			* map->scale) < 0)

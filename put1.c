@@ -3,24 +3,34 @@
 /*                                                        :::      ::::::::   */
 /*   put1.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kfan <kfan@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: kfan <fankahou@gmail.com>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 13:40:25 by kfan              #+#    #+#             */
-/*   Updated: 2024/11/01 21:23:47 by kfan             ###   ########.fr       */
+/*   Updated: 2026/04/20 00:17:03 by kfan             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	put_error(t_map *map, char *message)
+#ifdef __EMSCRIPTEN__
+#include <emscripten.h>
+#endif
+
+void put_error(t_map *map, char *message)
 {
-	ft_printf("Error\n");
-	ft_printf("%s\n", message);
-	mlx_destroy_window(map->mlx, map->win);
-	//mlx_destroy_display(map->mlx);
-	free(map->mlx);
-	ft_free(map->map, map->height - 1);
-	exit(1);
+    ft_printf("Error\n");
+    ft_printf("%s\n", message);
+    
+    mlx_destroy_window(map->mlx, map->win);
+    free(map->mlx);
+    ft_free(map->map, map->height - 1);
+    
+#ifdef __EMSCRIPTEN__
+    // This stops the C code dead in its tracks safely!
+    emscripten_force_exit(1); 
+#else
+    exit(1); 
+#endif
 }
 
 // sleep?
